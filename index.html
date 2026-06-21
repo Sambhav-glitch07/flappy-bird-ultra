@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flappy Bird Ultra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="ui-layer">
+            <div id="hud" class="hidden">
+                <div class="hud-top">
+                    <div id="score-display">0</div>
+                    <div id="combo-display" class="hidden">Combo x1</div>
+                </div>
+                <div class="hud-bottom">
+                    <div id="fps-display">FPS: 60</div>
+                    <button id="mute-btn" class="ui-icon-btn">🔊</button>
+                    <button id="pause-btn" class="ui-icon-btn">⏸</button>
+                </div>
+            </div>
+
+            <div id="main-menu" class="screen">
+                <h1 class="game-title">FLAPPY<br><span class="highlight">ULTRA</span></h1>
+                <div class="menu-buttons">
+                    <button id="start-btn" class="btn btn-primary">PLAY GAME</button>
+                    <button id="stats-btn" class="btn btn-secondary">STATISTICS</button>
+                    <button id="achieve-btn" class="btn btn-secondary">ACHIEVEMENTS</button>
+                    <button id="toggle-dark-mode" class="btn btn-secondary">THEME: LIGHT</button>
+                </div>
+                <div class="difficulty-selector">
+                    <label>DIFFICULTY:</label>
+                    <div class="radio-group">
+                        <button class="diff-btn active" data-diff="easy">Easy</button>
+                        <button class="diff-btn" data-diff="normal">Normal</button>
+                        <button class="diff-btn" data-diff="hard">Hard</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pause-screen" class="screen hidden">
+                <h2 class="screen-title">PAUSED</h2>
+                <button id="resume-btn" class="btn btn-primary">RESUME</button>
+                <button id="pause-main-menu-btn" class="btn btn-secondary">MAIN MENU</button>
+            </div>
+
+            <div id="game-over-screen" class="screen hidden">
+                <h2 class="screen-title crash-text">GAME OVER</h2>
+                <div class="stats-card">
+                    <div class="stat-row"><span>Score:</span><span id="final-score">0</span></div>
+                    <div class="stat-row"><span>Best Combo:</span><span id="final-combo">1x</span></div>
+                    <div class="stat-row"><span>High Score:</span><span id="best-score">0</span></div>
+                </div>
+                <div class="menu-buttons">
+                    <button id="restart-btn" class="btn btn-primary">PLAY AGAIN</button>
+                    <button id="over-main-menu-btn" class="btn btn-secondary">MAIN MENU</button>
+                </div>
+            </div>
+
+            <div id="stats-overlay" class="screen sub-screen hidden">
+                <h2 class="screen-title">STATISTICS</h2>
+                <div class="stats-card scrollable">
+                    <div class="stat-row"><span>Total Games:</span><span id="stat-games">0</span></div>
+                    <div class="stat-row"><span>Total Flaps:</span><span id="stat-flaps">0</span></div>
+                    <div class="stat-row"><span>Total Pipes Passed:</span><span id="stat-pipes">0</span></div>
+                    <div class="stat-row"><span>Max Combo:</span><span id="stat-combo">1x</span></div>
+                    <div class="stat-row"><span>Time Played:</span><span id="stat-time">0s</span></div>
+                </div>
+                <button id="close-stats-btn" class="btn btn-secondary">BACK</button>
+            </div>
+
+            <div id="achieve-overlay" class="screen sub-screen hidden">
+                <h2 class="screen-title">ACHIEVEMENTS</h2>
+                <div id="achievements-list" class="scrollable">
+                    </div>
+                <button id="close-achieve-btn" class="btn btn-secondary">BACK</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
